@@ -1,22 +1,19 @@
-spellbook1 = { "Elemental Magic":["Fireball", "Lightning Bolt","Earthquake"], 
-              "Healing Magic": ["Heal", "GreaterHeal"], 
-              "Dark Magic":["Curse"] }
-spellbook2 = { "Elemental Magic":["Fireball", "Ice Storm"],
-              "Healing Magic": ["Heal"],
-              "Necromancy": ["RaiseUndead", "Life Drain"] }
-merged_spellbook = {}
+def validate_pin(pin):
+    first_digit = str(pin)[0]
+    second_digit = str(pin)[1]
+    third_digit = str(pin)[2]
 
-for key1 in spellbook1:
-    for key2 in spellbook2:
-        if key1 == key2:
-            l1 = spellbook1[key1]
-            l2 = spellbook2[key2]
-            for spell in l1:
-                if spell in l2:
-                    l2.pop(l2.index(spell))
-            l1 += l2
-            merged_spellbook[key1] = l1
-        else:
-            merged_spellbook[key2] = spellbook2[key2]
+    condition1 = pin % 5 == 0 and pin % 7 == 0 # divisible by 5 and 7
+    condition2 = int(first_digit) % 2 == 1 # first digit is odd
+    condition3 = int(second_digit) % 2 == 1 and second_digit != first_digit # second digit is odd and not equal to first digit
+    condition4 = int(third_digit) % 2 == 0 # third digit is even
+    condition5 = len(set(str(pin))) == 4 # no repeated digits
 
-print(merged_spellbook)
+    if condition1 and condition2 and condition3 and condition4 and condition5:
+        return True
+    
+count = 1
+for i in range(1000,10000):
+    if validate_pin(i):
+        count +=1
+print(count)
