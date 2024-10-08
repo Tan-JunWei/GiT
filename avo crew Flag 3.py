@@ -11,26 +11,20 @@ def spellbook(spellbook1,spellbook2):
     keys2 = spellbook2.keys()
     list_of_keys = list(keys1) 
     
-    for key in keys2:
-        if key not in list_of_keys:
-            list_of_keys.append(key)
+    list_of_keys.extend(key for key in keys2 if key not in list_of_keys)
 
     for key in list_of_keys:
         if key in keys1 and key in keys2:
             merged_list = spellbook1[key]
-
-            for spell in spellbook2[key]:
-                if spell not in merged_list:
-                    merged_list.append(spell)
-                    
+            merged_list.extend(spell for spell in spellbook2[key] if spell not in merged_list)
             merged[key] = merged_list
                 
         elif key in keys1:
             merged[key] = spellbook1[key]
+
         elif key in keys2:
             merged[key] = spellbook2[key]
         
     return merged
 
-merged = spellbook(spellbook1,spellbook2)
-print(merged)
+print(spellbook(spellbook1,spellbook2))

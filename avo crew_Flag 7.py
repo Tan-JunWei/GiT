@@ -16,8 +16,10 @@ decrypted = ""
 for spell_name in encrypted_list:
     if spell_name in spells["spells"]:
         decrypted += spells["spells"][spell_name]['description'] + " "
+
     elif spell_name in spells["common_spells"]:
         decrypted += spells['common_spells'][spell_name]['power'] + " "
+        
     else:
         continue
         
