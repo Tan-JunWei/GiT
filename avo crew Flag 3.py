@@ -9,21 +9,21 @@ def spellbook(spellbook1,spellbook2):
     merged = {}
     keys1 = spellbook1.keys()
     keys2 = spellbook2.keys()
-    list_of_keys = list(keys1) + list(keys2)
-
-    for key in keys1:
-        if key in keys2:
-            list_of_keys.remove(key)
+    list_of_keys = list(keys1) 
+    
+    for key in keys2:
+        if key not in list_of_keys:
+            list_of_keys.append(key)
 
     for key in list_of_keys:
-
         if key in keys1 and key in keys2:
-            merged[key] = spellbook1[key] + spellbook2[key]
-            for key in merged.keys():
-                value = merged[key]
-                for i in value:
-                    if value.count(i) > 1:
-                        value.remove(i)
+            merged_list = spellbook1[key]
+
+            for spell in spellbook2[key]:
+                if spell not in merged_list:
+                    merged_list.append(spell)
+                    
+            merged[key] = merged_list
                 
         elif key in keys1:
             merged[key] = spellbook1[key]
