@@ -5,11 +5,13 @@ target = 160
 for rune in runes:
     try:
         sum += rune
+
     except TypeError:
         if type(rune) == list:
             for item in rune:
                 try:
                     sum += item
+                    
                 except TypeError:
                     continue
 

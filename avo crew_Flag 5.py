@@ -1,3 +1,5 @@
+count = 0
+
 def validate_pin(pin):
     first_digit = str(pin)[0]
     second_digit = str(pin)[1]
@@ -12,7 +14,6 @@ def validate_pin(pin):
     if condition1 and condition2 and condition3 and condition4 and condition5:
         return True
     
-count = 0
 for i in range(1000,10000):
     if validate_pin(i):
         count +=1

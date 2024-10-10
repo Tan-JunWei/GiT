@@ -15,6 +15,4 @@ sorted_values = sorted(values)
 for i in range(len(sorted_keys)):
     potion_inventory[sorted_keys[i]] = sorted_values[i]
 
-
-
 print(sorted(potion_inventory.values()))

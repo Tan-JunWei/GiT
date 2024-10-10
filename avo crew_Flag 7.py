@@ -1,7 +1,3 @@
-# 1. If the spell is found in the "spells" category, retrieve its "description".
-# 2. If the spell is found in the "common_spells" category, retrieve its "power".
-# 3. If a spell is not found in either category, it is ignored.
-
 spells = {"spells": 
           {"fireball": {"description": "Burns with the fury of a thousand suns", "power": "High"},
            "lightning": {"description": "Strikes with the speed of thunder", "power": "Medium"},
@@ -15,10 +11,10 @@ decrypted = ""
 
 for spell_name in encrypted_list:
     if spell_name in spells["spells"]:
-        decrypted += spells["spells"][spell_name]['description'] + " "
+        decrypted += f"{spells["spells"][spell_name]['description']} "
 
     elif spell_name in spells["common_spells"]:
-        decrypted += spells['common_spells'][spell_name]['power'] + " "
+        decrypted += f"{spells['common_spells'][spell_name]['power']} " 
         
     else:
         continue

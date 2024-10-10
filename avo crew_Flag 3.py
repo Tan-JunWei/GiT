@@ -6,11 +6,11 @@ spellbook2 = { "Elemental Magic":["Fireball", "Ice Storm"],
               "Necromancy": ["RaiseUndead", "Life Drain"] }
 
 def spellbook(spellbook1,spellbook2):
-    merged = {}
     keys1 = spellbook1.keys()
     keys2 = spellbook2.keys()
     list_of_keys = list(keys1) 
-    
+    merged = {}
+
     list_of_keys.extend(key for key in keys2 if key not in list_of_keys)
 
     for key in list_of_keys:
